@@ -1,0 +1,8 @@
+[workspace]
+members = ["brl", "rbmath", "convertml"]
+[workspace.dependencies]
+smallvec = {version = "1.10.0", features = ["union"]}
+log = "0.4.17"
+[profile.release]
+panic = "abort"
+lto = true

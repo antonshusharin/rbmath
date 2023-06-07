@@ -1,0 +1,16 @@
+#[repr(u8)]
+pub enum BraillePattern {
+    BrailleEmpty = 0,
+{% for pattern, dots in patterns.items() %}    Braille{{dots}} = {{pattern}},
+{% endfor %}
+    }
+
+impl BraillePattern {
+    const fn from_const_dots(dots: usize) -> Self {
+        match dots {
+            {% for dots in patterns.values() %}            {{dots}} => BraillePattern::Braille{{dots}},
+            {% endfor %}
+            _ => panic!("Invalid dot pattern.")
+            }
+            }
+            }
